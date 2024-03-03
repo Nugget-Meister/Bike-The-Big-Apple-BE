@@ -8,7 +8,7 @@ const getAllMilestones = async () => {
     catch(error){
         return error
     }
-}
+};
 const getSingleMilestone = async (id) => {
     try{
         const result = await db.one("SELECT * FROM milestone WHERE milestone_id=$1", id)
@@ -17,42 +17,34 @@ const getSingleMilestone = async (id) => {
     catch(error){
         return error
     }
-}
+};
 const createMilestone = async (data) => {
     try{
-        const result = await db.one("INSERT INTO milestone () VALUES () RETURNING *",[
-            // data. ,
-            // data. ,
-            // data. ,
-            // data.,
-            // data.,
-            // data.,
-            // data.,
+        const result = await db.one("INSERT INTO milestone (milestone_id, name, description) VALUES ($1,$2,$3) RETURNING *",[
+            data.milestone_id ,
+            data.name ,
+            data.description,
+            
         ])
         return result
     }
     catch(error){
         return error
     }
-}
+};
 const updateMilestone = async (id, data) => {
-    try{
-        const result = await db.one("UPDATE milestone SET milestone_id=$1, etc. WHERE x=$y RETURNING *", [
-             // data. ,
-            // data. ,
-            // data. ,
-            // data.,
-            // data.,
-            // data.,
-            // data.,
+    try {
+        const result = await db.one("UPDATE milestone SET name=$1, description=$2 WHERE milestone_id=$3 RETURNING *", [
+            data.milestone_id ,
+            data.name ,
+            data.description,
             id
-        ]) 
-        return result
+        ]);
+        return result;
+    } catch (error) {
+        return error;
     }
-    catch(error){
-        return error
-    }
-}
+};
 const deleteMilestone = async (id) => {
     try{
         const result = await db.one("DELETE FROM milestone WHERE milestone_id=$1 RETURNING *", id)
@@ -61,7 +53,7 @@ const deleteMilestone = async (id) => {
     catch(error){
         return error
     }
-}
+};
 
 module.exports = {
     getAllMilestones,

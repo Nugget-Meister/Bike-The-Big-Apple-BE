@@ -10,8 +10,16 @@ app.use(express.json());
 
 // Controllers
 
-// app.use('/example', example)
+const milestoneController = require('./controllers/milestoneController');
+const routesController = require('./controllers/routesController');
+const userController = require('./controllers/userController');
+const userMilestoneController = require('./controllers/userMilestoneController')
 
+// Controller Use app.use('/example', example)
+app.use('/milestone', milestoneController);
+app.use('/route', routesController);
+app.use('/user', userController);
+app.use('/userMilestone', userMilestoneController);
 
 app.get("/", (req, res) => {
     res.send("This is the back-end for Bike the Big Apple.")

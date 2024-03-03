@@ -12,7 +12,7 @@ const {
 
 routes.get("/", async (req, res) => {
   const result = await getAllRoutes();
-  process.stdout.write("GET Request recieved for ALL items... ");
+  process.stdout.write("GET Request recieved for ALL Routes... ");
   if (result) {
     if (result.severity) {
       console.log("Error detected.");
