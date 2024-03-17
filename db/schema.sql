@@ -5,10 +5,10 @@ CREATE DATABASE big_apple_capstone;
 
 CREATE TABLE app_user (
     user_id SERIAL PRIMARY KEY,
-    uuid SERIAL,
-    first_name CHAR(32),
-    last_name CHAR(32),
-    email CHAR(64),
+    firebase_UUID VARCHAR(32),
+    first_name VARCHAR(32),
+    last_name VARCHAR(32),
+    email VARCHAR (64)
 
 );
 
