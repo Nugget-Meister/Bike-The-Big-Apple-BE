@@ -20,8 +20,9 @@ const getSingleUser = async (id) => {
 }
 const createUser = async (data) => {
     try{
-        const result = await db.one("INSERT INTO app_user (user_id, first_name, last_name, email) VALUES ($1,$2,$3,$4) RETURNING *",[
+        const result = await db.one("INSERT INTO app_user (user_id, uuid, first_name, last_name, email) VALUES ($1,$2,$3,$4,$5) RETURNING *",[
             data.user_id,
+            data.uuid,
             data.first_name,
             data.last_name,
             data.email,
@@ -34,8 +35,9 @@ const createUser = async (data) => {
 }
 const updateUser = async (id, data) => {
     try {
-        const result = await db.one("UPDATE app_user SET first_name=$1, last_name=$2, email=$3 WHERE user_id=$4 RETURNING *", [
+        const result = await db.one("UPDATE app_user SET first_name=$1, uuid=$2, last_name=$3, email=$4 WHERE user_id=$5 RETURNING *", [
             data.first_name,
+            data.uuid,
             data.last_name,
             data.email,
             id

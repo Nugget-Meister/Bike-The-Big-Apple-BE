@@ -5,9 +5,11 @@ CREATE DATABASE big_apple_capstone;
 
 CREATE TABLE app_user (
     user_id SERIAL PRIMARY KEY,
+    uuid SERIAL,
     first_name CHAR(32),
     last_name CHAR(32),
-    email CHAR(64)
+    email CHAR(64),
+
 );
 
 CREATE TABLE route (

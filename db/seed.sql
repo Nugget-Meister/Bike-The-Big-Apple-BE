@@ -1,9 +1,9 @@
 \c big_apple_capstone;
 
 
-INSERT INTO app_user (user_id, first_name, last_name, email)
-VALUES (1,'Bing', 'Bong', 'BingBong@example.com'),
-       (2,'Jane', 'Smith', 'jane@example.com');
+INSERT INTO app_user (user_id, uuid, first_name, last_name, email)
+VALUES (1,'UP6gYP7wmTUZFgmJVrmQZIUgWc13','Bing', 'Bong', 'BingBong@example.com'),
+       (2,'LsjpdMj4SeWVk5OvEdMFgmlNqO23', 'Jane', 'Smith', 'jane@example.com');
 
 
 INSERT INTO route (user_id, distance_total, distance_traveled, completed, properties, date_completed)
