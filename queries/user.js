@@ -20,9 +20,9 @@ const getSingleUser = async (id) => {
 }
 const createUser = async (data) => {
     try{
-        const result = await db.one("INSERT INTO app_user (user_id, uuid, first_name, last_name, email) VALUES ($1,$2,$3,$4,$5) RETURNING *",[
+        const result = await db.one("INSERT INTO app_user (user_id, firebase_UUID, first_name, last_name, email) VALUES ($1,$2,$3,$4,$5) RETURNING *",[
             data.user_id,
-            data.uuid,
+            data.firebase_UUID,
             data.first_name,
             data.last_name,
             data.email,
@@ -35,9 +35,9 @@ const createUser = async (data) => {
 }
 const updateUser = async (id, data) => {
     try {
-        const result = await db.one("UPDATE app_user SET first_name=$1, uuid=$2, last_name=$3, email=$4 WHERE user_id=$5 RETURNING *", [
+        const result = await db.one("UPDATE app_user SET first_name=$1, firebase_UUID=$2, last_name=$3, email=$4 WHERE user_id=$5 RETURNING *", [
             data.first_name,
-            data.uuid,
+            data.firebase_UUID,
             data.last_name,
             data.email,
             id
