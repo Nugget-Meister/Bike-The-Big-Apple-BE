@@ -44,7 +44,7 @@ routes.get("/:id", async (req, res) => {
   process.stdout.write(`GET Request received for Routes at id ${id}... `);
   const result = await getSingleRoute(id);
   if (result) {
-    console.log(`Found ${result.name}`);
+    console.log(`Found id ${result.route_id}`);
     res.status(200).json({
       message: "OK",
       data: result,
@@ -65,7 +65,7 @@ routes.post("/", async (req, res) => {
   if (result.route_id) {
     console.log("Success");
     res.status(200).json({
-      message: "Added data to table",
+      message: `Added data to table at id ${result.route_id}`,
       data: result,
     });
   } else {
@@ -76,6 +76,7 @@ routes.post("/", async (req, res) => {
     });
   }
 });
+
 routes.put("/:id", async (req, res) => {
   const { id } = req.params;
   process.stdout.write(`PUT Request received for Routes at id ${id}... `);
@@ -83,13 +84,13 @@ routes.put("/:id", async (req, res) => {
   if (result.route_id) {
     console.log(`Wrote data at id ${id}`);
     res.status(200).json({
-      message: `Successfully changed data at id ${id}`,
+      message: `Successfully changed data at id ${result.route_id}`,
       data: result,
     });
   } else {
     console.log(`Failed to write at id ${id}`);
     res.status(404).json({
-      message: `Failed to change data at ${id}. May not exist`,
+      message: `Failed to change data at ${result.route_id}. May not exist.`,
       data: null,
     });
   }
@@ -101,14 +102,14 @@ routes.delete("/:id", async (req, res) => {
   if (result.route_id) {
     console.log("Success!");
     res.status(200).json({
-      message: `Deleted item at id ${id}`,
+      message: `Deleted item at id ${result.route_id}`,
       data: result,
     });
   } else {
     console.log("Failed");
     console.log(result);
     res.status(404).json({
-      message: `Item with id ${id} not found`,
+      message: `Item with id ${result.route_id} not found`,
       data: null,
     });
   }

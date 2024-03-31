@@ -1,20 +1,18 @@
 \c big_apple_capstone;
 
 
-INSERT INTO app_user (user_id, firebase_UUID, first_name, last_name, email)
-VALUES (1, 'UP6gYP7wmTUZFgmJVrmQZIUgWc13','Bing', 'Bong', 'BingBong@example.com'),
-       (2, 'LsjpdMj4SeWVk5OvEdMFgmlNqO23', 'Jane', 'Smith', 'jane@example.com');
 
 
-INSERT INTO route (user_id, distance_total, distance_traveled, completed, properties, date_completed)
+INSERT INTO route (starting_destination_latitude, starting_destination_longitude, ending_destination_latitude, ending_destination_longitude)
 VALUES 
-    (1, 100, 50, true, '{"start": "Columbus Circle", "end": "Frederick Douglass Circle"}', '2024-03-25'),
-    (2, 150, 100, false, '{"start": "Bark Slope Salon", "end": "Gold Street"}', '2024-03-02');
+    (40.70074081255701, -73.80713098412038, 40.743142701461174, -73.94187888813546),
+    (41.12345528287382, -75.19738927948282, 42.892692649629628, -75.29864294692864982);
 
 
-INSERT INTO milestone (milestone_id, name, description)
-VALUES (1, 'First Milestone', 'Completed the first route'),
-       (2, 'Second Milestone', 'Completed the second route');
+
+INSERT INTO milestone (name, description)
+VALUES ('First Milestone', 'Completed the first route'),
+       ('Second Milestone', 'Completed the second route');
 
 
 INSERT INTO user_milestone (milestone_id, user_id, route_id)

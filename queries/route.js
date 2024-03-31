@@ -20,14 +20,11 @@ const getSingleRoute = async (id) => {
 }
 const createRoute = async (data) => {
     try {
-        const result = await db.one("INSERT INTO route (route_id, user_id, distance_total, distance_traveled, completed, properties, date_completed) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [
-            data.route_id,
-            data.user_id,
-            data.distance_total,
-            data.distance_traveled,
-            data.completed,
-            data.properties,
-            data.date_completed
+        const result = await db.one("INSERT INTO route (starting_destination_latitude, starting_destination_longitude,ending_destination_latitude,ending_destination_longitude) VALUES ($1,$2,$3,$4) RETURNING *", [
+            data.starting_destination_latitude,
+            data.starting_destination_longitude,
+            data.ending_destination_latitude,
+            data.ending_destination_longitude
         ]);
         return result;
     } catch (error) {
@@ -36,14 +33,9 @@ const createRoute = async (data) => {
 };
 const updateRoute = async (id, data) => {
     try{
-        const result = await db.one("UPDATE route SET user_id=$1, distance_total=$2, distance_traveled=$3, completed=$4, properties=$5, date_completed=$6 WHERE route_id=$7 RETURNING *", [
-            data.route_id,
-            data.user_id,
-            data.distance_total,
-            data.distance_traveled,
-            data.completed,
-            data.properties,
-            data.date_completed,
+        const result = await db.one("UPDATE route SET starting_destination=$1, ending_destination=$2 WHERE route_id=$3 RETURNING *", [
+            data.starting_destination,
+            data.ending_destination,
             id
         ]) 
         return result

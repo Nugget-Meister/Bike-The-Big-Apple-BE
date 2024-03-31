@@ -3,23 +3,13 @@ CREATE DATABASE big_apple_capstone;
 
 \c big_apple_capstone;
 
-CREATE TABLE app_user (
-    user_id SERIAL PRIMARY KEY,
-    firebase_UUID VARCHAR(32),
-    first_name VARCHAR(32),
-    last_name VARCHAR(32),
-    email VARCHAR (64)
-
-);
 
 CREATE TABLE route (
-    route_id SERIAL PRIMARY KEY,
-    user_id INT,
-    distance_total INT,
-    distance_traveled INT,
-    completed BOOLEAN,
-    properties JSONB,
-    date_completed DATE
+   route_id SERIAL PRIMARY KEY, 
+   starting_destination_latitude FLOAT,
+   starting_destination_longitude FLOAT,
+   ending_destination_latitude FLOAT,
+   ending_destination_longitude FLOAT
 );
 
 CREATE TABLE milestone (
