@@ -95,6 +95,7 @@ routes.put("/:id", async (req, res) => {
     });
   }
 });
+
 routes.delete("/:id", async (req, res) => {
   const { id } = req.params;
   process.stdout.write(`DELETE Request received for Routes at id ${id}... `);
