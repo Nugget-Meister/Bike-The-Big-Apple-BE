@@ -44,7 +44,7 @@ milestones.get("/:id", async (req, res) => {
   process.stdout.write(`GET Request received for milestones at id ${id}... `);
   const result = await getSingleMilestone(id);
   if (result) {
-    console.log(`Found ${result.name}`);
+    console.log(`Found ${result.milestone_id}`);
     res.status(200).json({
       message: "OK",
       data: result,

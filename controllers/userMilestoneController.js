@@ -46,7 +46,7 @@ userMilestones.get("/:id", async (req, res) => {
   );
   const result = await getSingleUserMilestone(id);
   if (result) {
-    console.log(`Found ${result.name}`);
+    console.log(`Found ${result.user_milestone_id}`);
     res.status(200).json({
       message: "OK",
       data: result,
