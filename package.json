@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "nodemon server.js"
+    "nodemon": "nodemon server.js",
+    "schema": "psql -U postgres -f db/schema.sql",
+    "seed": "psql -U postgres -f db/seed.sql"
   },
   "author": "",
   "license": "ISC",
