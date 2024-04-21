@@ -8,6 +8,7 @@ const {
   createUserStatistics,
   updateUserStatistics,
   deleteUserStatistics,
+  getUserFromEmail
 } = require("../queries/userStatistics.js");
 
 userStatistics.get("/", async (req, res) => {
@@ -53,6 +54,27 @@ userStatistics.get("/:id", async (req, res) => {
     });
   } else {
     console.log(`ERROR - No item found with id ${id}`);
+    res.status(500).json({
+      message: "No item found.",
+      data: null,
+    });
+  }
+});
+
+userStatistics.get("/email/:id", async (req, res) => {
+  const { id } = req.params;
+  process.stdout.write(
+    `GET Request received for user_statistics at with email ${id}... `
+  );
+  const result = await getUserFromEmail(id);
+  if (result) {
+    console.log(`Found ${result.user_email}`);
+    res.status(200).json({
+      message: "OK",
+      data: result,
+    });
+  } else {
+    console.log(`ERROR - No item found with email ${id}`);
     res.status(500).json({
       message: "No item found.",
       data: null,

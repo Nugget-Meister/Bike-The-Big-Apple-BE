@@ -21,7 +21,8 @@ CREATE TABLE user_statistics (
     routes_completed INT,
     average_elevation FLOAT,
     route_avoided FLOAT,
-    user_id INT
+    total_checkpoints FLOAT,
+    user_email VARCHAR(256) 
 );
 
 
