@@ -14,7 +14,7 @@ const cn = {
 console.log(cn)
 
 // const db = pgp(cn);
-const db = pgp('postgres://btba_sql_user:qdzCpOiwXQaqXNEIUYakQtZa9PvcthfG@dpg-coin4m8l5elc73dafqf0-a/btba_sql')
+const db = pgp(process.env.PG_URL)
 
 // console.log(db)
 
