@@ -14,7 +14,7 @@ const cn = {
 console.log(cn)
 
 // const db = pgp(cn);
-const db = pgp(process.env.PG_URL)
+const db = pgp(process.env.PG_URL || cn)
 
 // console.log(db)
 
