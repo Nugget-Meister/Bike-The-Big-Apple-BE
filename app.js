@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 
 const app = express();
 
@@ -10,15 +9,15 @@ app.use(express.json());
 
 // Controllers
 
-const milestoneController = require('./controllers/milestoneController');
+const milestonesController = require('./controllers/milestoneController');
 const routesController = require('./controllers/routesController');
 const userStatisticsController = require('./controllers/userStatisticsController');
-const userMilestoneController = require('./controllers/userMilestoneController')
+const userMilestonesController = require('./controllers/userMilestoneController')
 
 // Controller Use app.use('/example', example)
-app.use('/milestone', milestoneController);
-app.use('/route', routesController);
-app.use('/userMilestone', userMilestoneController);
+app.use('/milestones', milestonesController);
+app.use('/routes', routesController);
+app.use('/userMilestones', userMilestonesController);
 app.use('/userStatistics', userStatisticsController);
 
 app.get("/", (req, res) => {
