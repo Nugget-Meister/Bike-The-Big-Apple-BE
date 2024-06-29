@@ -4,7 +4,7 @@ CREATE DATABASE big_apple_capstone;
 \c big_apple_capstone;
 
 
-CREATE TABLE route (
+CREATE TABLE btba_route (
    route_id SERIAL PRIMARY KEY, 
    starting_destination_latitude FLOAT,
    starting_destination_longitude FLOAT,
@@ -15,7 +15,7 @@ CREATE TABLE route (
    route_distance_difference FLOAT
 );
 
-CREATE TABLE user_statistics (
+CREATE TABLE btba_user_statistics (
     user_statistics_id SERIAL PRIMARY KEY,
     total_distance FLOAT,
     routes_completed INT,
@@ -26,13 +26,13 @@ CREATE TABLE user_statistics (
 );
 
 
-CREATE TABLE milestone (
+CREATE TABLE btba_milestone (
     milestone_id SERIAL PRIMARY KEY,
     name CHAR(32),
     description CHAR(64)
 );
 
-CREATE TABLE user_milestone (
+CREATE TABLE btba_user_milestone (
     user_milestone_id SERIAL PRIMARY KEY,
     milestone_id INT,
     user_id INT,
