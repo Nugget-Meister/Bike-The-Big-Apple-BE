@@ -1,21 +1,28 @@
 const db = require("../db/dbConfig.js");
 
+// These need to be updated for data validation
+
+
 const getAllRoutes = async () => {
   try {
     const result = await db.any("SELECT * FROM route");
+    console.log(result)
     return result;
   } catch (error) {
+    console.log(error)
     return error;
   }
 };
+
 const getSingleRoute = async (id) => {
   try {
     const result = await db.one("SELECT * FROM route WHERE route_id=$1", id);
     return result;
-  } catch (error) {
+  } catch (error) { 
     return error;
   }
 };
+
 const createRoute = async (data) => {
   try {
     const result = await db.one("INSERT INTO route (starting_destination_latitude, starting_destination_longitude,ending_destination_latitude,ending_destination_longitude,route_distance,route_elevation,route_distance_difference) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *",
@@ -34,6 +41,7 @@ const createRoute = async (data) => {
     return error;
   }
 };
+
 const updateRoute = async (id, data) => {
   try {
     const result = await db.one(
@@ -54,6 +62,7 @@ const updateRoute = async (id, data) => {
     return error;
   }
 };
+
 const deleteRoute = async (id) => {
   try {
     const result = await db.one(
